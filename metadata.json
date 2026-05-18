@@ -1,0 +1,8 @@
+{
+  "name": "Classic Snake",
+  "description": "A classic Snake game built with HTML5 Canvas, React, and Tailwind CSS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

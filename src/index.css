@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Press Start 2P", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Press Start 2P", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  .text-glow-emerald {
+    text-shadow: 0 0 10px rgba(52, 211, 153, 0.7), 0 0 20px rgba(52, 211, 153, 0.5);
+  }
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.7), 0 0 20px rgba(34, 211, 238, 0.5);
+  }
+  .text-red-glow {
+    text-shadow: 0 0 10px rgba(239, 68, 68, 0.7), 0 0 20px rgba(239, 68, 68, 0.5);
+  }
+  .btn-arcade {
+    animation: btn-pulse 2s infinite alternate;
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.3);
+  }
+  .btn-arcade:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.8), inset 0 0 10px rgba(52, 211, 153, 0.4);
+  }
+  .score-bump {
+    animation: bump-score 0.2s ease-out forwards;
+  }
+  
+  .scanlines::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 20;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
+
+  .animate-shake {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+  }
+
+  .bg-animated-gradient {
+    background: linear-gradient(-45deg, #020617, #0f172a, #064e3b, #020617);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+  }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bump-score {
+  0% { transform: scale(1); color: #fff; }
+  50% { transform: scale(1.5); color: #34d399; }
+  100% { transform: scale(1); color: #fff; }
+}
+
+@keyframes btn-pulse {
+  0% { box-shadow: 0 0 5px rgba(52, 211, 153, 0.2), inset 0 0 2px rgba(52, 211, 153, 0.1); }
+  100% { box-shadow: 0 0 15px rgba(52, 211, 153, 0.6), inset 0 0 8px rgba(52, 211, 153, 0.3); }
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-2px, 2px, 0) rotate(1deg); }
+  20%, 80% { transform: translate3d(3px, -2px, 0) rotate(-1deg); }
+  30%, 50%, 70% { transform: translate3d(-5px, 2px, 0) rotate(1deg); }
+  40%, 60% { transform: translate3d(5px, -2px, 0) rotate(-1deg); }
+}
